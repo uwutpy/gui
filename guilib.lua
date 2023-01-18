@@ -49,7 +49,7 @@ local function getcustomassetfunc(path)
             textlabel:Remove()
         end)
         local req = requestfunc({
-            Url = "https://raw.githubusercontent.com/7GrandDadPGN/RiseForRoblox/main/"..path:gsub("rise/assets", "assets"),
+            Url = "https://raw.githubusercontent.com/uwutpy/gui/main/"..path:gsub("rise/assets", "assets"),
             Method = "GET"
         })
         writefile(path, req.Body)
@@ -160,7 +160,7 @@ sidecorner.Parent = sidebar
 local sidebartitle = Instance.new("TextLabel")
 sidebartitle.Size = UDim2.new(1, -6, 0, 50)
 sidebartitle.TextSize = 48
-sidebartitle.Text = "Rise"
+sidebartitle.Text = "Exhibition"
 sidebartitle.Font = Enum.Font.SourceSans
 sidebartitle.BackgroundTransparency = 1
 sidebartitle.TextColor3 = Color3.new(1, 1, 1)
@@ -169,7 +169,7 @@ sidebartitle.Parent = sidebar
 local sidebarversion = Instance.new("TextLabel")
 sidebarversion.Size = UDim2.new(1, -6, 0, 50)
 sidebarversion.TextSize = 20
-sidebarversion.Text = "roblox"
+sidebarversion.Text = " "
 sidebarversion.Font = Enum.Font.SourceSans
 sidebarversion.BackgroundTransparency = 1
 sidebarversion.TextColor3 = Color3.new(1, 1, 1)
