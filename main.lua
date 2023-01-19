@@ -1,6 +1,6 @@
 local riseoptions = {
     CustomText = "",
-    Theme = "Exhibition Blend",
+    Theme = "Rise Blend",
     RenderToggle = true,
     ShowRenderModules = true,
     NameTags = false,
@@ -32,15 +32,15 @@ local risethemes = {
     },
 }
 
-if isfolder("exhibition") == false then
-	makefolder("exhibition")
+if isfolder("rise") == false then
+	makefolder("rise")
 end
-if isfolder("exhibition/assets") == false then
-	makefolder("exhibition/assets")
+if isfolder("rise/assets") == false then
+	makefolder("rise/assets")
 end
 
 local function SaveSettings()
-    writefile("exhibition/settings.json", game:GetService("HttpService"):JSONEncode(riseoptions))
+    writefile("rise/settings.json", game:GetService("HttpService"):JSONEncode(riseoptions))
 end
 
 local players = game:GetService("Players")
@@ -70,10 +70,10 @@ local setthreadidentityfunc = syn and syn.set_thread_identity or set_thread_iden
 local getthreadidentityfunc = syn and syn.get_thread_identity or get_thread_identity or getidentity or getthreadidentity
 local function GetURL(scripturl, rise)
     if shared.VapeDeveloper then
-        if not betterisfile((rise and "exhibition/" or "vape/")..scripturl) then
-            error("File not found : "..(rise and "exhibition/" or "vape/")..scripturl)
+        if not betterisfile((rise and "rise/" or "exhibition/")..scripturl) then
+            error("File not found : "..(rise and "rise/" or "exhibition/")..scripturl)
         end
-        return readfile((rise and "exhibition/" or "vape/")..scripturl)
+        return readfile((rise and "rise/" or "exhibition/")..scripturl)
     else
         local res = game:HttpGet("https://raw.githubusercontent.com/uwutpy/"..(rise and "gui" or "exhibition").."/main/"..scripturl, true)
         assert(res ~= "404: Not Found", "File not found")
@@ -261,7 +261,7 @@ end
 
 local teleportfunc = game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
-		local teleportstr = 'shared.VapeSwitchServers = true if shared.VapeDeveloper then loadstring(readfile("exhibition/main.lua"))() else loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/RiseForRoblox/main/main.lua", true))() end'
+		local teleportstr = 'shared.VapeSwitchServers = true if shared.VapeDeveloper then loadstring(readfile("rise/main.lua"))() else loadstring(game:HttpGet("https://raw.githubusercontent.com/uwutpy/gui/main/main.lua", true))() end'
 		if shared.VapeDeveloper then
 			teleportstr = 'shared.VapeDeveloper = true '..teleportstr
 		end
@@ -302,27 +302,27 @@ end)
 local windowtabs = {
     Combat = guilib:CreateCategory({
         Name = "Combat",
-        Icon = ""
+        Icon = "⚔️"
     }),
     Blatant = guilib:CreateCategory({
         Name = "Blatant",
-        Icon = ""
+        Icon = "⚠️"
     }),
     Render = guilib:CreateCategory({
         Name = "Render",
-        Icon = ""
+        Icon = "👁️"
     }),
     Utility = guilib:CreateCategory({
         Name = "Utility",
-        Icon = ""
+        Icon = "🛠️"
     }),
     World = guilib:CreateCategory({
         Name = "World",
-        Icon = ""
+        Icon = "🌎"
     }),
     Info = guilib:CreateCategory({
         Name = "Info",
-        Icon = ""
+        Icon = "ℹ️"
     })
 }
 
@@ -352,7 +352,7 @@ infolab3.Position = UDim2.new(0, 124, 0, 263)
 infolab3.TextColor3 = Color3.fromRGB(180, 180, 180)
 infolab3.TextSize = 30
 infolab3.Font = Enum.Font.SourceSansLight
-infolab3.Text = "made by umutss"
+infolab3.Text = ""
 infolab3.TextXAlignment = Enum.TextXAlignment.Left
 infolab3.TextYAlignment = Enum.TextYAlignment.Top
 infolab3.BackgroundTransparency = 1
@@ -363,6 +363,8 @@ infolab4.TextColor3 = Color3.fromRGB(130, 130, 130)
 infolab4.TextSize = 30
 infolab4.Font = Enum.Font.SourceSansLight
 infolab4.Text = [[
+
+    
 
 ]]
 infolab4.TextXAlignment = Enum.TextXAlignment.Left
@@ -682,7 +684,7 @@ end
 local risetext = Instance.new("TextLabel")
 risetext.Text = "Exhibition"
 risetext.Font = Enum.Font.TitilliumWeb
-risetext.TextSize = 40
+risetext.TextSize = 53
 risetext.TextColor3 = Color3.new(1, 1, 1)
 risetext.BackgroundTransparency = 1
 risetext.TextYAlignment = Enum.TextYAlignment.Top
@@ -702,7 +704,7 @@ risegradient.Parent = risetext
 local risetextversion = risetext:Clone()
 local risetextcustom = risetext:Clone()
 risetextversion.TextSize = 26
-risetextversion.Text = "5.94"
+risetextversion.Text = " "
 risetextversion.Position = UDim2.new(0, 66, 0, 6)
 risetextversion.Parent = risetext
 risetextversion.TextLabel.TextSize = 26
@@ -851,7 +853,7 @@ local function refreshbars(textlists)
             image.BackgroundTransparency = 1
             image.ImageColor3 = Color3.new(0, 0, 0)
             image.ZIndex = 0
-            image.Image = getcustomassetfunc("exhibition/assets/WindowBlurLine.png")
+            image.Image = getcustomassetfunc("rise/assets/WindowBlurLine.png")
             image.BorderSizePixel = 0
             image.Parent = frame
             local imagecorner1 = Instance.new("ImageLabel")
@@ -861,7 +863,7 @@ local function refreshbars(textlists)
             imagecorner1.BackgroundTransparency = 1
             imagecorner1.ImageColor3 = Color3.new(0, 0, 0)
             imagecorner1.ZIndex = 0
-            imagecorner1.Image = getcustomassetfunc("exhibition/assets/WindowBlurCorner.png")
+            imagecorner1.Image = getcustomassetfunc("rise/assets/WindowBlurCorner.png")
             imagecorner1.BorderSizePixel = 0
             imagecorner1.Parent = frame
             local imagecorner2 = Instance.new("ImageLabel")
@@ -872,7 +874,7 @@ local function refreshbars(textlists)
             imagecorner2.BackgroundTransparency = 1
             imagecorner2.ImageColor3 = Color3.new(0, 0, 0)
             imagecorner2.ZIndex = 0
-            imagecorner2.Image = getcustomassetfunc("exhibition/assets/WindowBlurCorner.png")
+            imagecorner2.Image = getcustomassetfunc("rise/assets/WindowBlurCorner.png")
             imagecorner2.BorderSizePixel = 0
             imagecorner2.Parent = frame
             local imagerightline = Instance.new("ImageLabel")
@@ -883,7 +885,7 @@ local function refreshbars(textlists)
             imagerightline.BackgroundTransparency = 1
             imagerightline.ImageColor3 = Color3.new(0, 0, 0)
             imagerightline.ZIndex = 0
-            imagerightline.Image = getcustomassetfunc("exhibition/assets/WindowBlurLine2.png")
+            imagerightline.Image = getcustomassetfunc("rise/assets/WindowBlurLine2.png")
             imagerightline.BorderSizePixel = 0
             imagerightline.Parent = frame
         end
@@ -896,7 +898,7 @@ local function refreshbars(textlists)
             imagecorner4.Rotation = 180
             imagecorner4.ImageColor3 = Color3.new(0, 0, 0)
             imagecorner4.ZIndex = 0
-            imagecorner4.Image = getcustomassetfunc("exhibition/assets/WindowBlurCorner.png")
+            imagecorner4.Image = getcustomassetfunc("rise/assets/WindowBlurCorner.png")
             imagecorner4.BorderSizePixel = 0
             imagecorner4.Parent = frame
         end
@@ -908,7 +910,7 @@ local function refreshbars(textlists)
         imagecorner3.Rotation = 270
         imagecorner3.ImageColor3 = Color3.new(0, 0, 0)
         imagecorner3.ZIndex = 0
-        imagecorner3.Image = getcustomassetfunc("exhibition/assets/WindowBlurCorner.png")
+        imagecorner3.Image = getcustomassetfunc("rise/assets/WindowBlurCorner.png")
         imagecorner3.BorderSizePixel = 0
         imagecorner3.Parent = frame
         local imagebottom = Instance.new("ImageLabel")
@@ -925,7 +927,7 @@ local function refreshbars(textlists)
         imagebottom.BackgroundTransparency = 1
         imagebottom.ImageColor3 = Color3.new(0, 0, 0)
         imagebottom.ZIndex = 0
-        imagebottom.Image = getcustomassetfunc("exhibition/assets/WindowBlurLine.png")
+        imagebottom.Image = getcustomassetfunc("rise/assets/WindowBlurLine.png")
         imagebottom.BorderSizePixel = 0
         imagebottom.Parent = frame
         local imageleftline = Instance.new("ImageLabel")
@@ -936,7 +938,7 @@ local function refreshbars(textlists)
         imageleftline.BackgroundTransparency = 1
         imageleftline.ImageColor3 = Color3.new(0, 0, 0)
         imageleftline.ZIndex = 0
-        imageleftline.Image = getcustomassetfunc("exhibition/assets/WindowBlurLine2.png")
+        imageleftline.Image = getcustomassetfunc("rise/assets/WindowBlurLine2.png")
         imageleftline.BorderSizePixel = 0
         imageleftline.Parent = frame
 	end
@@ -1143,7 +1145,7 @@ local NameTags = windowtabs.Render:CreateButton({
 })
 
 local function LoadSettings()
-    local suc, res = pcall(function() return game:GetService("HttpService"):JSONDecode(readfile("exhibition/settings.json")) end)
+    local suc, res = pcall(function() return game:GetService("HttpService"):JSONDecode(readfile("rise/settings.json")) end)
     if suc and type(res) == "table" then 
         if risethemes[res.Theme] == nil then
             res.Theme = "Rise Blend"
